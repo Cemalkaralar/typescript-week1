@@ -1,16 +1,36 @@
-const createQuestion = ({ question, correctAnswer, incorrectAnswers,}) => {
+const createQuestion = (questions) => {
+    
+    let category = questions.map((element)=>{
+        return element.category
+    })
+    let question = questions.map((element)=>{
+        return element.question
+    })
+    let correctAnswer = questions.map((element)=>{
+        return element.correctAnswer
+    })
+    let arrincorrectAnswers = questions.map((element)=>{
+        return element.correctAnswer
+    })
+  
+    let incorrectAnswers = arrincorrectAnswers.map((element)=>{
+        return element
+    })
 
+console.log(question)
     // Concat the answers and shuffle them
     const allAnswers = [correctAnswer, ...incorrectAnswers]
         .map(value => ({ value, sort: Math.random() }))
         .sort((a, b) => a.sort - b.sort)
         .map(({ value }) => value);
 
+
     const $question = document.createElement('section');
 
     // Here you will need to modify the code
     // Add an element with id "questionCategory" to the HTML and set the value to based on the category property
     $question.innerHTML = `
+    <h2>${category}</h1>
         <h1>${question}</h1>
         <form class="question-options" action="">
             <input type="radio" name="answer" id="answer1" value="${allAnswers[0]}">
