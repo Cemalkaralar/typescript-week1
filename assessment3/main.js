@@ -1,11 +1,11 @@
 import { fetchQuestion } from './modules/question.api.js';
 import { createQuestion } from './modules/question.component.js';
 
-const question = await fetchQuestion();
+const questions = await fetchQuestion();
 
-console.log(question)
-
-const $question = createQuestion(question);
+const data=questions[0];
+const { category, question, correctAnswer, incorrectAnswers }=data;
+const $question = createQuestion(data);
 
 
 
