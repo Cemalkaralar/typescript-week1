@@ -23,7 +23,7 @@ const createQuestion = ({category, question, correctAnswer, incorrectAnswers }) 
 
 
     // Concat the answers and shuffle them
-    const allAnswers = [correctAnswer, incorrectAnswers]
+    const allAnswers = [correctAnswer, ...incorrectAnswers]
         .map(value => ({ value, sort: Math.random() }))
         .sort((a, b) => a.sort - b.sort)
         .map(({ value }) => value);
