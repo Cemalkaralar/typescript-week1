@@ -1,23 +1,6 @@
-const createQuestion = (questions) => {
+const createQuestion = ({  category, question, correctAnswer, incorrectAnswers}) => {
     
-    let category = questions.map((element)=>{
-        return element.category
-    })
-    let question = questions.map((element)=>{
-        return element.question
-    })
-    let correctAnswer = questions.map((element)=>{
-        return element.correctAnswer
-    })
-    let arrincorrectAnswers = questions.map((element)=>{
-        return element.correctAnswer
-    })
-  
-    let incorrectAnswers = arrincorrectAnswers.map((element)=>{
-        return element
-    })
-
-console.log(question)
+    
     // Concat the answers and shuffle them
     const allAnswers = [correctAnswer, ...incorrectAnswers]
         .map(value => ({ value, sort: Math.random() }))
